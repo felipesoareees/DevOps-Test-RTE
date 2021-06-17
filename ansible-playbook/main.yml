@@ -2,7 +2,7 @@
 - hosts: aws
   become: yes
   gather_facts: true
-#  roles:
+  roles:
 #    - installDocker
-    - ansible-role-docker-nginx
+     - ansible-role-docker-nginx
 ...
