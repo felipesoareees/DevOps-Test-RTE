@@ -18,8 +18,8 @@
 
     - name: Install lvm2
       yum:
-      name: lvm2
-      state: latest
+        name: lvm2
+        state: latest
 
     - name: Add Docker repo
       get_url:
