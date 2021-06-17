@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+    stages{
+        stage('SCM Checkout'){
+            steps{
+                git 'https://github.com/felipesoareees/DevOps-Test-RTE.git'
+            }
+        }
+        stage('Execute Ansible Playbook'){
+            steps{
+                ansiblePlaybook credentialsId: 'aws01', disableHostKeyChecking: true, installation: 'ansible00', inventory: 'ansible-playbook/host_vars/hosts.yml', playbook: 'ansible-playbook/main.yml'
+            }
+        }
+    }
+    
+}
