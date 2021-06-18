@@ -30,19 +30,9 @@ pipeline {
                 }    
             }
         }
-        stage('docker stop container') {
-            steps {
-                sh 'docker ps -f name=nginx01 -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -fname=nginx01 -q | xargs -r docker container rm'
-            }
-        }
-
-    // Running Docker container, make sure port 80 is opened in 
-        stage('Docker Run') {
+        stage('Execute Ansible Playbook'){
             steps{
-                script {
-                    dockerImage.run("-p 80:80 --rm --name nginx01")
-                }
+                ansiblePlaybook become: true, credentialsId: 'aws01', disableHostKeyChecking: true, installation: 'ansible00', inventory: 'ansible-playbook/host_vars/hosts.yml', playbook: 'ansible-playbook/main.yml'
             }
         }
     }
