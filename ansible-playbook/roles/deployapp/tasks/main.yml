@@ -1,2 +1,24 @@
 ---
 # tasks file for deployapp
+- name: Remove container ngxin01
+  docker_container:
+    name: nginx01
+    state: absent
+
+- name: Remove image nginx01
+  docker_image:
+    state: absent
+    name: felipesoareees/nginx-hello-word
+    tag: latest
+
+- name: pull image nginx01
+  docker_image:
+    name: felipesoareees/nginx-hello-word:latest
+    source: pull
+
+- name: start nginx01 container
+  docker_container:
+    name: nginx01
+    image: felipesoareees/nginx-hello-word
+    ports: 
+      - 80:80
