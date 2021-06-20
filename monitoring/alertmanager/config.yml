@@ -1,0 +1,11 @@
+
+route:
+   receiver: 'slack'
+
+receivers:
+   - name: 'slack'
+     slack_configs:
+        - send_resolved: true
+          username: 'feehsuarez'
+          channel: '#monitoramentoalertas-de-containers-docker'
+          api_url: 'https://hooks.slack.com/services/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'

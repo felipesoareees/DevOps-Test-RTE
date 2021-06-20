@@ -1,6 +1,6 @@
 Documentação Projeto DevOps Test SRE.
 
-O projeto consiste na integração de diversas tecnologias entre elas: docker, ansible, jenkins, git, prometheus, grafana, alert manager, netdata,slack, telegram etc. A ideia é simular alertas, execução de pipelines e também provisionamento de um web service qualquer. 
+O projeto consiste na integração de diversas tecnologias entre elas: docker, ansible, jenkins, git, prometheus, grafana, alert manager, netdata, telegram etc. A ideia é simular alertas, execução de pipelines e também provisionamento de um web service qualquer. 
 
 * Web Service a ser deployado: 
 
@@ -18,4 +18,8 @@ Criei 2 playbooks dos quais :
 
 - installDocker : Realiza a instalação do docker caso a máquina slave ainda não seja provisionada. 
 - deployApp: Atualiza a imagem no host destino e sobe a modificação já em produção. 
+
+* Monitoramento:
+O monitoramento consiste na verificação de processos da máquina master, que também podem ser configuradas nos slaves. Para este cenário, usamos o grafana como gerador de dashboards com o prometheus buscando estas informações nos plugins node_export e netdata.
+Também há 2 alertas configurados com o alertmanager, basta verficar o arquivo alertmanager/config.yml.
 
