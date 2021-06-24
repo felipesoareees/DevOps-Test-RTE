@@ -23,3 +23,4 @@ Criei 2 playbooks dos quais :
 O monitoramento consiste na verificação de processos da máquina master, que também podem ser configuradas nos slaves. Para este cenário, usamos o grafana como gerador de dashboards com o prometheus buscando estas informações nos plugins node_export e netdata.
 Também há 2 alertas configurados com o alertmanager, basta verficar o arquivo alertmanager/config.yml.
 
+.
